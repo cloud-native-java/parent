@@ -9,9 +9,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <!-- <version>1.2.5.RELEASE</version> -->
-        <version>1.3.0.M3</version>
-
+        <version>1.3.0.M4</version>
+        <relativePath/>
     </parent>
 
     <properties>
@@ -26,12 +25,7 @@
     </properties>
     <build>
         <finalName>${project.artifactId}</finalName>
-        <plugins>
-        <!--     <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>-->
-        </plugins>
+
     </build>
 
     <profiles>
@@ -45,9 +39,7 @@
             </activation>
             <id>CI</id>
             <build>
-                <!--
-                                <directory>${ci.artifacts}/${project.artifactId}</directory>
-                -->
+
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -142,27 +134,27 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency> -->
-   		<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Brixton.BUILD-SNAPSHOT</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-parent</artifactId>
+                <version>Brixton.BUILD-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
 
         </dependencies>
     </dependencyManagement>
 
     <repositories>
-        <!-- <repository>
+        <repository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
             <url>https://repo.spring.io/snapshot</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository> -->
+        </repository>
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
@@ -173,14 +165,14 @@
         </repository>
     </repositories>
     <pluginRepositories>
-        <!-- <pluginRepository>
+        <pluginRepository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
             <url>https://repo.spring.io/snapshot</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </pluginRepository> -->
+        </pluginRepository>
         <pluginRepository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
