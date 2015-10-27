@@ -127,13 +127,7 @@
                 <version>${swagger-ui.version}</version>
             </dependency>
 
-            <!-- <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-parent</artifactId>
-                <version>Angel.SR3</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency> -->
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
@@ -182,5 +176,11 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
+    <distributionManagement>
+        <snapshotRepository>
+            <id>cloudnativejava</id>
+            <name>cloudnativejava-snapshots</name>
+            <url>https://cloudnativejava.artifactoryonline.com/cloudnativejava/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
