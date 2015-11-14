@@ -58,11 +58,12 @@
                             </publisher>
                             <buildInfo>
                                 <agentName>Travis CI</agentName>
-                                <buildNumber>{{TRAVIS_BUILD_NUMBER}}</buildNumber>
-                                <buildUrl>http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}
+                                <buildNumber>{{$CIRCLE_BUILD_NUM}}</buildNumber>
+                                <buildUrl>
+        http://circleci.com/gh/{{CIRCLE_PROJECT_USERNAME}}/{{CIRCLE_PROJECT_REPONAME}}/{{CIRCLE_BUILD_NUM}}
                                 </buildUrl>
                                 <principal>{{USER}}</principal>
-                                <vcsRevision>{{TRAVIS_COMMIT}}</vcsRevision>
+                                <vcsRevision>{{CIRCLE_SHA1}}</vcsRevision>
 
                             </buildInfo>
                         </configuration>
