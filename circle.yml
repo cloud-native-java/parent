@@ -1,0 +1,39 @@
+
+machine:
+  environment:
+    SELENIUM_PORT: 80
+    SELENIUM_VERSION: 24
+    CI_TARGET: $CIRCLE_ARTIFACTS/$CIRCLE_BUILD_NUM-$CIRCLE_PROJECT_REPONAME-$CIRCLE_USERNAME
+    SELENIUM_PLATFORM: WINDOWS
+    SELENIUM_BROWSER: Chrome
+    SWAP: $CI_TARGET
+  java:
+    version: oraclejdk8
+  timezone:
+    America/Los_Angeles
+
+
+checkout:
+  post:
+    - git clone https://github.com/cloud-native-java/build.git
+    - ./build/checkout-post.sh $CI_TARGET
+
+
+dependencies:
+#  cache_directories :
+#    - $HOME/.m2/repository/
+  pre:
+    - ./build/dependencies-pre.sh $CF_USER $CF_PASSWORD $CF_ORG $CF_SPACE
+
+  override:
+    - mvn -DskipTests=true install
+
+test:
+  override:
+    - mvn -Dci.artifacts=$CIRCLE_ARTIFACTS  deploy
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./root-cf-deploy.sh
