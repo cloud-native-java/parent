@@ -1,9 +1,19 @@
+language: java
 
-install:
-  -
+env:
+  - CI_TARGET=$CIRCLE_ARTIFACTS/$TRAVIS_BUILD_NUMBER-$CIRCLE_PROJECT_REPONAME-$CIRCLE_USERNAME
+  - SWAP=$CI_TARGET
 
-script:
+jdk:
+  - oraclejdk8
 
 cache:
   directories:
     - $HOME/.m2/repository/
+
+install:
+  - git clone https://github.com/cloud-native-java/build.git
+  - ./build/install.sh $CI_TARGET
+
+script:
+  - ./build/script.sh
