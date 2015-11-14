@@ -1,3 +1,4 @@
+# https://circleci.com/docs/configuration
 
 machine:
   environment:
@@ -18,22 +19,33 @@ checkout:
     - git clone https://github.com/cloud-native-java/build.git
     - ./build/checkout-post.sh $CI_TARGET
 
-
 dependencies:
-#  cache_directories :
-#    - $HOME/.m2/repository/
+  cache_directories :
+    - $HOME/.m2/repository/
   pre:
     - ./build/dependencies-pre.sh $CF_USER $CF_PASSWORD $CF_ORG $CF_SPACE
-
   override:
     - mvn -DskipTests=true install
 
 test:
   override:
-    - mvn -Dci.artifacts=$CIRCLE_ARTIFACTS  deploy
+    - mvn deploy
 
 deployment:
   production:
     branch: master
     commands:
       - ./root-cf-deploy.sh
+
+
+repository directory, is:
+
+#before_install
+#install
+#before_script
+#script
+#after_success or after_failure
+#OPTIONAL before_deploy
+#OPTIONAL deploy
+#OPTIONAL after_deploy
+#after_script

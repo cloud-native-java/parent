@@ -1,0 +1,9 @@
+
+install:
+  -
+
+script:
+
+cache:
+  directories:
+    - $HOME/.m2/repository/
