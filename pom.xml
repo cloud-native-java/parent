@@ -78,13 +78,13 @@
         </plugins>
     </build>
 
-    <profiles>
-        <!-- Continuous Integration build exports our built artifacts -->
+  <!--  <profiles>
+        &lt;!&ndash; Continuous Integration build exports our built artifacts &ndash;&gt;
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
                 <property>
-                    <name>ci.artifacts</name>
+                    <name>ci</name>
                 </property>
             </activation>
             <id>CI</id>
@@ -144,7 +144,7 @@
                 </plugins>
             </build>
         </profile>
-    </profiles>
+    </profiles>-->
 
     <dependencyManagement>
         <dependencies>
@@ -178,16 +178,6 @@
                 <version>${swagger-ui.version}</version>
             </dependency>
 
-            <!--
-
-                        <dependency>
-                            <groupId>org.springframework.cloud</groupId>
-                            <artifactId>spring-cloud-starter-parent</artifactId>
-                            <version>Brixton.BUILD-SNAPSHOT</version>
-                            <type>pom</type>
-                            <scope>import</scope>
-                        </dependency>
-            -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
@@ -201,23 +191,6 @@
     </dependencyManagement>
 
     <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
         <repository>
             <snapshots>
                 <enabled>false</enabled>
@@ -235,22 +208,7 @@
 
     </repositories>
     <pluginRepositories>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
+
         <pluginRepository>
             <snapshots>
                 <enabled>false</enabled>
@@ -267,9 +225,6 @@
         </pluginRepository>
 
     </pluginRepositories>
-
-
-
 
 
 </project>
