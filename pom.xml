@@ -25,57 +25,58 @@
         <java.version>1.8</java.version>
         <spring-security-oauth.version>2.0.6.RELEASE</spring-security-oauth.version>
     </properties>
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jfrog.buildinfo</groupId>
+                    <artifactId>artifactory-maven-plugin</artifactId>
+                    <version>2.4.0</version>
+                    <inherited>true</inherited>
+                    <executions>
+                        <execution>
+                            <id>build-info</id>
+                            <goals>
+                                <goal>publish</goal>
+                            </goals>
+                            <configuration>
+                                <deployProperties>
+                                    <build.vcsRevision>{{TRAVIS_COMMIT}}</build.vcsRevision>
+                                </deployProperties>
+                                <publisher>
+                                    <contextUrl>https://cloudnativejava.artifactoryonline.com/cloudnativejava</contextUrl>
+                                    <username>${env.ARTIFACTORY_USERNAME}</username>
+                                    <password>${env.ARTIFACTORY_PASSWORD}</password>
+                                    <repoKey>libs-release-local</repoKey>
+                                    <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                                </publisher>
+                                <buildInfo>
+                                    <agentName>Travis CI</agentName>
+                                    <buildNumber>{{TRAVIS_BUILD_NUMBER}}</buildNumber>
+                                    <buildUrl>http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}</buildUrl>
+                                    <principal>{{USER}}</principal>
+                                    <vcsRevision>{{TRAVIS_COMMIT}}</vcsRevision>
+                                </buildInfo>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.jfrog.buildinfo</groupId>
                 <artifactId>artifactory-maven-plugin</artifactId>
-                <version>2.4.0</version>
-                <!--<inherited>false</inherited>-->
-                <inherited>true</inherited>
-                <executions>
-                    <execution>
-                        <id>build-info</id>
-                        <goals>
-                            <goal>publish</goal>
-                        </goals>
-                        <configuration>
-                            <deployProperties>
-                                <build.vcsRevision>{{TRAVIS_COMMIT}}</build.vcsRevision>
-                            </deployProperties>
-                            <!--
-                                                        <deployProperties>
-                                                            <gradle>awesome</gradle>
-                                                            <review.team>qa</review.team>
-                                                        </deployProperties>
-                            -->
-                            <publisher>
-                                <contextUrl>https://cloudnativejava.artifactoryonline.com/cloudnativejava</contextUrl>
-                                <username>${env.ARTIFACTORY_USERNAME}</username>
-                                <password>${env.ARTIFACTORY_PASSWORD}</password>
-                                <repoKey>libs-release-local</repoKey>
-                                <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
-                            </publisher>
-                            <buildInfo>
-                                <agentName>Travis CI</agentName>
-                                <buildNumber>{{TRAVIS_BUILD_NUMBER}}</buildNumber>
-                                <buildUrl>http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}
-                                </buildUrl>
-                                <principal>{{USER}}</principal>
-                                <vcsRevision>{{TRAVIS_COMMIT}}</vcsRevision>
-                            </buildInfo>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
 
 
-           <!-- <plugin>
-                <inherited>false</inherited>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-            </plugin>-->
+            <!-- <plugin>
+                 <inherited>false</inherited>
+                 <groupId>pl.project13.maven</groupId>
+                 <artifactId>git-commit-id-plugin</artifactId>
+             </plugin>-->
         </plugins>
     </build>
 
@@ -158,7 +159,6 @@
         </pluginRepository>
 
     </pluginRepositories>
-
 
 
 </project>
