@@ -1,7 +1,5 @@
 language: java
 
-#env:
-
 jdk:
   - oraclejdk8
 
