@@ -32,7 +32,7 @@
                 <groupId>org.jfrog.buildinfo</groupId>
                 <artifactId>artifactory-maven-plugin</artifactId>
                 <version>2.4.0</version>
-                <inherited>false</inherited>
+                <!--<inherited>false</inherited>-->
                 <executions>
                     <execution>
                         <id>build-info</id>
@@ -63,7 +63,6 @@
                                 </buildUrl>
                                 <principal>{{USER}}</principal>
                                 <vcsRevision>{{TRAVIS_COMMIT}}</vcsRevision>
-
                             </buildInfo>
                         </configuration>
                     </execution>
@@ -71,80 +70,14 @@
             </plugin>
 
 
-            <plugin>
+           <!-- <plugin>
+                <inherited>false</inherited>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
-    <!--  <profiles>
-          &lt;!&ndash; Continuous Integration build exports our built artifacts &ndash;&gt;
-          <profile>
-              <activation>
-                  <activeByDefault>false</activeByDefault>
-                  <property>
-                      <name>ci</name>
-                  </property>
-              </activation>
-              <id>CI</id>
-              <build>
-
-                  <plugins>
-
-                      <plugin>
-                          <groupId>org.apache.maven.plugins</groupId>
-                          <artifactId>maven-resources-plugin</artifactId>
-                          <executions>
-                              <execution>
-                                  <id>copy-resources</id>
-                                  <phase>install</phase>
-                                  <goals>
-                                      <goal>copy-resources</goal>
-                                  </goals>
-                                  <configuration>
-                                      <outputDirectory>${ci.artifacts}/${project.artifactId}</outputDirectory>
-                                      <resources>
-                                          <resource>
-                                              <directory>${project.build.directory}/cukes</directory>
-                                          </resource>
-                                          <resource>
-                                              <directory>${project.build.directory}/surefire-reports</directory>
-                                          </resource>
-                                      </resources>
-                                  </configuration>
-                              </execution>
-                          </executions>
-
-                      </plugin>
-                      <plugin>
-                          <groupId>org.apache.maven.plugins</groupId>
-                          <artifactId>maven-dependency-plugin</artifactId>
-                          <executions>
-                              <execution>
-                                  <id>copy-installed</id>
-                                  <phase>install</phase>
-                                  <goals>
-                                      <goal>copy</goal>
-                                  </goals>
-                                  <configuration>
-                                      <outputDirectory>${ci.artifacts}/${project.artifactId}</outputDirectory>
-                                      <artifactItems>
-                                          <artifactItem>
-                                              <groupId>${project.groupId}</groupId>
-                                              <artifactId>${project.artifactId}</artifactId>
-                                              <version>${project.version}</version>
-                                              <type>${project.packaging}</type>
-                                          </artifactItem>
-                                      </artifactItems>
-                                  </configuration>
-                              </execution>
-                          </executions>
-                      </plugin>
-                  </plugins>
-              </build>
-          </profile>
-      </profiles>-->
 
     <dependencyManagement>
         <dependencies>
@@ -185,10 +118,9 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
+
 
     <repositories>
         <repository>
@@ -225,6 +157,7 @@
         </pluginRepository>
 
     </pluginRepositories>
+
 
 
 </project>
