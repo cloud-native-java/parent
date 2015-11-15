@@ -33,7 +33,7 @@
                     <groupId>org.jfrog.buildinfo</groupId>
                     <artifactId>artifactory-maven-plugin</artifactId>
                     <version>2.4.0</version>
-                    <inherited>true</inherited>
+                    <inherited>false</inherited>
                     <executions>
                         <execution>
                             <id>build-info</id>
