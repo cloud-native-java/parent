@@ -11,5 +11,6 @@ install:
   - git clone https://github.com/cloud-native-java/build.git
   - ./build/install.sh
 
+
 script:
   - ./build/script.sh
