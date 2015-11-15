@@ -58,12 +58,11 @@
                             </publisher>
                             <buildInfo>
                                 <agentName>Travis CI</agentName>
-                                <buildNumber>{{$CIRCLE_BUILD_NUM}}</buildNumber>
-                                <buildUrl>
-        http://circleci.com/gh/{{CIRCLE_PROJECT_USERNAME}}/{{CIRCLE_PROJECT_REPONAME}}/{{CIRCLE_BUILD_NUM}}
+                                <buildNumber>{{TRAVIS_BUILD_NUMBER}}</buildNumber>
+                                <buildUrl>http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}
                                 </buildUrl>
                                 <principal>{{USER}}</principal>
-                                <vcsRevision>{{CIRCLE_SHA1}}</vcsRevision>
+                                <vcsRevision>{{TRAVIS_COMMIT}}</vcsRevision>
 
                             </buildInfo>
                         </configuration>
@@ -79,73 +78,73 @@
         </plugins>
     </build>
 
-  <!--  <profiles>
-        &lt;!&ndash; Continuous Integration build exports our built artifacts &ndash;&gt;
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <property>
-                    <name>ci</name>
-                </property>
-            </activation>
-            <id>CI</id>
-            <build>
+    <!--  <profiles>
+          &lt;!&ndash; Continuous Integration build exports our built artifacts &ndash;&gt;
+          <profile>
+              <activation>
+                  <activeByDefault>false</activeByDefault>
+                  <property>
+                      <name>ci</name>
+                  </property>
+              </activation>
+              <id>CI</id>
+              <build>
 
-                <plugins>
+                  <plugins>
 
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>copy-resources</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${ci.artifacts}/${project.artifactId}</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>${project.build.directory}/cukes</directory>
-                                        </resource>
-                                        <resource>
-                                            <directory>${project.build.directory}/surefire-reports</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
+                      <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-resources-plugin</artifactId>
+                          <executions>
+                              <execution>
+                                  <id>copy-resources</id>
+                                  <phase>install</phase>
+                                  <goals>
+                                      <goal>copy-resources</goal>
+                                  </goals>
+                                  <configuration>
+                                      <outputDirectory>${ci.artifacts}/${project.artifactId}</outputDirectory>
+                                      <resources>
+                                          <resource>
+                                              <directory>${project.build.directory}/cukes</directory>
+                                          </resource>
+                                          <resource>
+                                              <directory>${project.build.directory}/surefire-reports</directory>
+                                          </resource>
+                                      </resources>
+                                  </configuration>
+                              </execution>
+                          </executions>
 
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>copy-installed</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>copy</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${ci.artifacts}/${project.artifactId}</outputDirectory>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>${project.groupId}</groupId>
-                                            <artifactId>${project.artifactId}</artifactId>
-                                            <version>${project.version}</version>
-                                            <type>${project.packaging}</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>-->
+                      </plugin>
+                      <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-dependency-plugin</artifactId>
+                          <executions>
+                              <execution>
+                                  <id>copy-installed</id>
+                                  <phase>install</phase>
+                                  <goals>
+                                      <goal>copy</goal>
+                                  </goals>
+                                  <configuration>
+                                      <outputDirectory>${ci.artifacts}/${project.artifactId}</outputDirectory>
+                                      <artifactItems>
+                                          <artifactItem>
+                                              <groupId>${project.groupId}</groupId>
+                                              <artifactId>${project.artifactId}</artifactId>
+                                              <version>${project.version}</version>
+                                              <type>${project.packaging}</type>
+                                          </artifactItem>
+                                      </artifactItems>
+                                  </configuration>
+                              </execution>
+                          </executions>
+                      </plugin>
+                  </plugins>
+              </build>
+          </profile>
+      </profiles>-->
 
     <dependencyManagement>
         <dependencies>
