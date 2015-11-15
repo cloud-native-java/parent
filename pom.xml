@@ -27,7 +27,8 @@
     </properties>
 
     <build>
-        <pluginManagement>
+
+         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.jfrog.buildinfo</groupId>
