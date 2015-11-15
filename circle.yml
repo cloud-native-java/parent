@@ -38,7 +38,7 @@ deployment:
       - ./root-cf-deploy.sh
 
 
-repository directory, is:
+#repository directory, is:
 
 #before_install
 #install
