@@ -115,7 +115,6 @@
         </dependencies>
     </dependencyManagement>
 
-
     <repositories>
         <repository>
             <snapshots>
@@ -131,10 +130,8 @@
             <name>libs-snapshot</name>
             <url>https://cloudnativejava.artifactoryonline.com/cloudnativejava/libs-snapshot</url>
         </repository>
-
     </repositories>
     <pluginRepositories>
-
         <pluginRepository>
             <snapshots>
                 <enabled>false</enabled>
@@ -149,8 +146,8 @@
             <name>plugins-snapshot</name>
             <url>https://cloudnativejava.artifactoryonline.com/cloudnativejava/plugins-snapshot</url>
         </pluginRepository>
-
     </pluginRepositories>
+
 
 
 </project>
