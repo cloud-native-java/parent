@@ -96,11 +96,11 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-          <dependency>
+       <!--   <dependency>
               <groupId>com.mangofactory</groupId>
               <artifactId>swagger-springmvc</artifactId>
               <version>${swagger-springmvc.version}</version>
-          </dependency>
+          </dependency>-->
           <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
