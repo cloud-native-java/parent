@@ -22,7 +22,7 @@
         <spring-security.version>4.0.0.RELEASE</spring-security.version>
         <java.version>1.8</java.version>
         <spring-security-oauth.version>2.0.6.RELEASE</spring-security-oauth.version>
-        <cloudfoundry-client.version>1.1.4</cloudfoundry-client.version>
+        <cloudfoundry-client.version>1.1.2</cloudfoundry-client.version>
     </properties>
     <build>
         <pluginManagement>
@@ -79,27 +79,10 @@
                 <artifactId>cloudfoundry-client-lib</artifactId>
                 <version>${cloudfoundry-client.version}</version>
             </dependency>
-        <!--    <dependency>
-                <groupId>org.springframework.security.oauth</groupId>
-                <artifactId>spring-security-oauth2</artifactId>
-                <version>${spring-security-oauth.version}</version>
-            </dependency>-->
-          <!--  <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-bom</artifactId>
-                <version>${spring-security.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>-->
-            <!--   <dependency>
-                   <groupId>com.mangofactory</groupId>
-                   <artifactId>swagger-springmvc</artifactId>
-                   <version>${swagger-springmvc.version}</version>
-               </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Brixton.RC1</version>
+                <version>Brixton.BUILD-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
