@@ -16,7 +16,9 @@
     </parent>
 
     <properties>
+        <spring-cloud-task.version>1.0.2.BUILD-SNAPSHOT</spring-cloud-task.version>
         <spring-integration-java-dsl.version>1.1.2.RELEASE</spring-integration-java-dsl.version>
+        <spring-cloud-dataflow.version>1.0.0.RC1</spring-cloud-dataflow.version>
         <swagger-ui.version>2.0.24</swagger-ui.version>
         <swagger-springmvc.version>1.0.2</swagger-springmvc.version>
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
@@ -75,7 +77,11 @@
     </build>
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-task-starter</artifactId>
+                <version>${spring-cloud-task.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.integration</groupId>
                 <artifactId>spring-integration-java-dsl</artifactId>
@@ -96,7 +102,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dataflow-dependencies</artifactId>
-                <version>1.0.0.BUILD-SNAPSHOT</version>
+                <version>${spring-cloud-dataflow.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
