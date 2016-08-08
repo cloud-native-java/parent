@@ -26,8 +26,9 @@
         <!-- General -->
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
         <java.version>1.8</java.version>
-        <cloudfoundry-client.version>1.1.2</cloudfoundry-client.version>
+        <!--<cloudfoundry-client.version>1.1.2</cloudfoundry-client.version>-->
 
+        <spring-cloud-stream-app-dependencies.version>1.0.2.RELEASE</spring-cloud-stream-app-dependencies.version>
     </properties>
     <build>
         <pluginManagement>
@@ -113,15 +114,13 @@
                 <version>${spring-cloud-task.version}</version>
             </dependency>
 
-            <!--  <dependency>
-                  <groupId>org.springframework.integration</groupId>
-                  <artifactId>spring-integration-java-dsl</artifactId>
-                  <version>${spring-integration-java-dsl.version}</version>
-              </dependency>-->
+
             <dependency>
-                <groupId>org.cloudfoundry</groupId>
-                <artifactId>cloudfoundry-client-lib</artifactId>
-                <version>${cloudfoundry-client.version}</version>
+                <groupId>org.springframework.cloud.stream.app</groupId>
+                <artifactId>spring-cloud-stream-app-dependencies</artifactId>
+                <version>${spring-cloud-stream-app-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
 
@@ -135,7 +134,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dataflow-dependencies</artifactId>
-                <version>${spring-cloud-dataflow-dependencies.version}</version>
+                <version>${spring-cloud-dataflow.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
