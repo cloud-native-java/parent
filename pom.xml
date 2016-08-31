@@ -20,7 +20,7 @@
 
         <!-- Spring Cloud -->
         <spring-cloud-task.version>1.0.1.RELEASE</spring-cloud-task.version>
-        <spring-cloud-dependencies.version>Brixton.SR4</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>Brixton.SR5</spring-cloud-dependencies.version>
         <spring-cloud-dataflow.version>1.0.0.RELEASE</spring-cloud-dataflow.version>
         <spring-cloud-stream-app-dependencies.version>1.0.2.RELEASE</spring-cloud-stream-app-dependencies.version>
 
