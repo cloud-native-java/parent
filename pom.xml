@@ -146,11 +146,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>io.projectreactor.ipc</groupId>
-                <artifactId>reactor-netty</artifactId>
-                <version>0.5.2.RELEASE</version>
-            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
