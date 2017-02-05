@@ -22,9 +22,9 @@
         <spring-batch.version>4.0.0.M1</spring-batch.version>
 
         <!-- Spring Cloud -->
-        <spring-cloud-task.version>1.0.1.RELEASE</spring-cloud-task.version>
-        <spring-cloud-dependencies.version>Brixton.SR5</spring-cloud-dependencies.version>
-        <spring-cloud-dataflow.version>1.0.0.RELEASE</spring-cloud-dataflow.version>
+        <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
+        <spring-cloud-dependencies.version>Camden.SR4</spring-cloud-dependencies.version>
+        <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version>
         <spring-cloud-stream-app-dependencies.version>1.0.2.RELEASE</spring-cloud-stream-app-dependencies.version>
 
         <!-- General -->
@@ -113,25 +113,18 @@
     </build>
     <dependencyManagement>
         <dependencies>
-            <!--
-             the spring-integration-bom HAS to be defined and has to be first!
-            -->
             <dependency>
-                <groupId>org.springframework.integration</groupId>
-                <artifactId>spring-integration-bom</artifactId>
-                <version>${spring-integration.version}</version>
-                <scope>import</scope>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dataflow-dependencies</artifactId>
+                <version>${spring-cloud-dataflow.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-task-starter</artifactId>
+                <artifactId>spring-cloud-task-dependencies</artifactId>
+                <!--<version></version>-->
                 <version>${spring-cloud-task.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud.stream.app</groupId>
-                <artifactId>spring-cloud-stream-app-dependencies</artifactId>
-                <version>${spring-cloud-stream-app-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -142,14 +135,44 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dataflow-dependencies</artifactId>
-                <version>${spring-cloud-dataflow.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
 
+            <!--
+             the spring-integration-bom HAS to be defined and has to be first!
+            -->
+            <!--    <dependency>
+                    <groupId>org.springframework.integration</groupId>
+                    <artifactId>spring-integration-bom</artifactId>
+                    <version>${spring-integration.version}</version>
+                    <scope>import</scope>
+                    <type>pom</type>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-task-starter</artifactId>
+                    <version>${spring-cloud-task.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud.stream.app</groupId>
+                    <artifactId>spring-cloud-stream-app-dependencies</artifactId>
+                    <version>${spring-cloud-stream-app-dependencies.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-dependencies</artifactId>
+                    <version>${spring-cloud-dependencies.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-dataflow-dependencies</artifactId>
+                    <version>${spring-cloud-dataflow.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+    -->
 
         </dependencies>
     </dependencyManagement>
