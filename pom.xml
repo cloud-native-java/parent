@@ -28,7 +28,6 @@
         <reactor-netty.version>0.5.2.RELEASE</reactor-netty.version>
 
         <java.version>1.8</java.version>
-
     </properties>
     <build>
         <pluginManagement>
