@@ -16,7 +16,6 @@
     </parent>
 
     <properties>
-
         <!-- Spring Batch -->
         <spring-batch.version>4.0.0.M1</spring-batch.version>
 
@@ -24,16 +23,12 @@
         <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
         <spring-cloud-dependencies.version>Camden.SR4</spring-cloud-dependencies.version>
         <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version>
-<!--
-        <spring-cloud-stream-app-dependencies.version>1.1.0.RELEASE</spring-cloud-stream-app-dependencies.version>
--->
 
         <!-- General -->
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
         <reactor-netty.version>0.5.2.RELEASE</reactor-netty.version>
 
         <java.version>1.8</java.version>
-        <!--<cloudfoundry-client.version>1.1.2</cloudfoundry-client.version>-->
 
     </properties>
     <build>
