@@ -15,6 +15,7 @@
         <relativePath/>
     </parent>
     <properties>
+        
         <!-- Spring Batch -->
         <spring-batch.version>4.0.0.M1</spring-batch.version>
 
