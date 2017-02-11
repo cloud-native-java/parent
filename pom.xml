@@ -181,20 +181,20 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Runs unit tests -->
-
+            <!--   unit tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                    <argLine>-Xmx2048m -XX:MaxPermSize=256m</argLine>
                     <skipTests>${skip.unit.tests}</skipTests>
                     <excludes>
                         <exclude>**/*IT.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
-            <!-- Runs integration tests -->
+
+            <!--   integration tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -207,15 +207,12 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
-                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                            <argLine>-Xmx2048m -XX:MaxPermSize=256m</argLine>
                             <skipTests>${skip.integration.tests}</skipTests>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- old
-            -->
             <plugin>
                 <groupId>org.jfrog.buildinfo</groupId>
                 <artifactId>artifactory-maven-plugin</artifactId>
