@@ -182,10 +182,12 @@
                 </executions>
             </plugin>
             <!-- Runs unit tests -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
                     <skipTests>${skip.unit.tests}</skipTests>
                     <excludes>
                         <exclude>**/*IT.java</exclude>
@@ -205,6 +207,7 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
+                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
                             <skipTests>${skip.integration.tests}</skipTests>
                         </configuration>
                     </execution>
