@@ -26,9 +26,14 @@
 
         <!-- General -->
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
-        <reactor-netty.version>0.5.2.RELEASE</reactor-netty.version>
 
         <java.version>1.8</java.version>
+
+        <!-- to support the reactive cloud foundry client -->
+        <cloudfoundry-client.version>2.3.0.RELEASE</cloudfoundry-client.version>
+        <reactor-core.version>3.0.4.RELEASE</reactor-core.version>
+        <reactor-netty.version>0.6.0.RELEASE</reactor-netty.version>
+
     </properties>
 
     <!-- IT -->
@@ -206,9 +211,6 @@
                 </executions>
             </plugin>
 
-
-
-
             <!-- old
             -->
             <plugin>
@@ -219,6 +221,32 @@
     </build>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.cloudfoundry</groupId>
+                <artifactId>cloudfoundry-client-reactor</artifactId>
+                <version>${cloudfoundry-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cloudfoundry</groupId>
+                <artifactId>cloudfoundry-operations</artifactId>
+                <version>${cloudfoundry-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor.ipc</groupId>
+                <artifactId>reactor-netty</artifactId>
+                <version>${reactor-netty.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dataflow-dependencies</artifactId>
