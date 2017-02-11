@@ -186,6 +186,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+                    <threadCount>1</threadCount>
                     <argLine>-Xmx2048m -XX:MaxPermSize=256m</argLine>
                     <skipTests>${skip.unit.tests}</skipTests>
                     <excludes>
@@ -207,6 +208,8 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
+                            <threadCount>1</threadCount>
+                            <skipTests>${skip.integration.tests}</skipTests>
                             <argLine>-Xmx2048m -XX:MaxPermSize=256m</argLine>
                             <skipTests>${skip.integration.tests}</skipTests>
                         </configuration>
