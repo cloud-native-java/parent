@@ -68,7 +68,7 @@
                     https://mvnrepository.com/artifact/net.revelc.code/formatter-maven-plugin
                     use: mvn formatter:format
                 -->
-                <!--  <plugin>
+                <plugin>
                       <groupId>net.revelc.code</groupId>
                       <artifactId>formatter-maven-plugin</artifactId>
                       <version>0.5.2</version>
@@ -83,11 +83,11 @@
                           <dependency>
                               <groupId>cnj</groupId>
                               <artifactId>code</artifactId>
-                              <version>${project.version}</version>
+                              <version>1.0.0-SNAPSHOT</version>
                           </dependency>
                       </dependencies>
                   </plugin>
-  -->
+
                 <plugin>
                     <groupId>org.jfrog.buildinfo</groupId>
                     <artifactId>artifactory-maven-plugin</artifactId>
