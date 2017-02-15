@@ -21,8 +21,10 @@
 
         <!-- Spring Cloud -->
         <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
-        <spring-cloud-dependencies.version>Camden.SR4</spring-cloud-dependencies.version>
-        <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version>
+        <spring-cloud-dependencies.version>Camden.SR4
+        </spring-cloud-dependencies.version>
+        <spring-cloud-dataflow.version>1.1.0.RELEASE
+        </spring-cloud-dataflow.version>
 
         <!-- General -->
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
@@ -40,9 +42,17 @@
     <profiles>
         <profile>
             <id>dev</id>
+            <properties>
+                <skip.integration.tests>true</skip.integration.tests>
+            </properties>
+        </profile>
+        <profile>
+            <id>unit-test</id>
+            <!--
             <activation>
-                <activeByDefault>true</activeByDefault>
+            <activeByDefault>true</activeByDefault>
             </activation>
+            -->
             <properties>
                 <build.profile.id>dev</build.profile.id>
                 <skip.integration.tests>true</skip.integration.tests>
@@ -58,35 +68,28 @@
             </properties>
         </profile>
     </profiles>
-    <!-- IT -->
-
     <build>
         <pluginManagement>
             <plugins>
-
-                <!--
-                    https://mvnrepository.com/artifact/net.revelc.code/formatter-maven-plugin
-                    use: mvn formatter:format
-                -->
                 <plugin>
-                      <groupId>net.revelc.code</groupId>
-                      <artifactId>formatter-maven-plugin</artifactId>
-                      <version>0.5.2</version>
+                    <groupId>net.revelc.code</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>0.5.2</version>
 
-                      <inherited>true</inherited>
+                    <inherited>true</inherited>
 
-                      <configuration>
-                          <configFile>eclipse/eclipse-code-formatter.xml
-                          </configFile>
-                      </configuration>
-                      <dependencies>
-                          <dependency>
-                              <groupId>cnj</groupId>
-                              <artifactId>code</artifactId>
-                              <version>1.0.0-SNAPSHOT</version>
-                          </dependency>
-                      </dependencies>
-                  </plugin>
+                    <configuration>
+                        <configFile>eclipse/eclipse-code-formatter.xml
+                        </configFile>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>cnj</groupId>
+                            <artifactId>code</artifactId>
+                            <version>1.0.0-SNAPSHOT</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
 
                 <plugin>
                     <groupId>org.jfrog.buildinfo</groupId>
@@ -108,14 +111,18 @@
                                     <contextUrl>
                                         https://cloudnativejava.artifactoryonline.com/cloudnativejava
                                     </contextUrl>
-                                    <username>${env.ARTIFACTORY_USERNAME}</username>
-                                    <password>${env.ARTIFACTORY_PASSWORD}</password>
+                                    <username>${env.ARTIFACTORY_USERNAME}
+                                    </username>
+                                    <password>${env.ARTIFACTORY_PASSWORD}
+                                    </password>
                                     <repoKey>libs-release-local</repoKey>
-                                    <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                                    <snapshotRepoKey>libs-snapshot-local
+                                    </snapshotRepoKey>
                                 </publisher>
                                 <buildInfo>
                                     <agentName>Travis CI</agentName>
-                                    <buildNumber>{{TRAVIS_BUILD_NUMBER}}</buildNumber>
+                                    <buildNumber>{{TRAVIS_BUILD_NUMBER}}
+                                    </buildNumber>
                                     <buildUrl>
                                         http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}
                                     </buildUrl>
@@ -132,12 +139,12 @@
         <plugins>
             <!--
 
-                        Tests:
-                            mvn clean test
-                        Integration Tests:
-                            mvn clean verify -P integration-test
+            Tests:
+            mvn clean test
+            Integration Tests:
+            mvn clean verify -P integration-test
 
-                    -->
+            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -168,13 +175,14 @@
                             <!-- Configures the resource directory of our integration tests -->
                             <resources>
                                 <!--
-                                    Placeholders that are found from the files located in the configured resource
-                                    directories are replaced with the property values found from the profile
-                                    specific configuration file.
+                                Placeholders that are found from the files located in the configured resource
+                                directories are replaced with the property values found from the profile
+                                specific configuration file.
                                 -->
                                 <resource>
                                     <filtering>true</filtering>
-                                    <directory>src/integration-test/resources</directory>
+                                    <directory>src/integration-test/resources
+                                    </directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -191,6 +199,7 @@
                     <threadCount>1</threadCount>
                     <argLine>-Xms1024m -Xmx2048m</argLine>
                     <skipTests>${skip.unit.tests}</skipTests>
+                    <skipTests>${skipTests}</skipTests>
                     <excludes>
                         <exclude>**/*IT.java</exclude>
                     </excludes>
@@ -212,6 +221,7 @@
                         <configuration>
                             <threadCount>1</threadCount>
                             <skipTests>${skip.integration.tests}</skipTests>
+                            <skipTests>${skip.ITs}</skipTests>
                             <argLine>-Xms1024m -Xmx2048m</argLine>
                         </configuration>
                     </execution>
