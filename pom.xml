@@ -48,11 +48,6 @@
         </profile>
         <profile>
             <id>unit-test</id>
-            <!--
-            <activation>
-            <activeByDefault>true</activeByDefault>
-            </activation>
-            -->
             <properties>
                 <build.profile.id>dev</build.profile.id>
                 <skip.integration.tests>true</skip.integration.tests>
