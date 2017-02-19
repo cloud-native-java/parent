@@ -39,7 +39,8 @@
     </properties>
 
     <!-- IT -->
-  <!--  <profiles>
+    <!--
+    <profiles>
         <profile>
             <id>dev</id>
             <properties>
@@ -62,7 +63,8 @@
                 <skip.unit.tests>true</skip.unit.tests>
             </properties>
         </profile>
-    </profiles>-->
+    </profiles>
+    -->
     <build>
         <pluginManagement>
             <plugins>
