@@ -80,7 +80,7 @@
                     <dependencies>
                         <dependency>
                             <groupId>cnj</groupId>
-                            <artifactId>code</artifactId>
+                            <artifactId>project-support</artifactId>
                             <version>1.0.0-SNAPSHOT</version>
                         </dependency>
                     </dependencies>
