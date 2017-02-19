@@ -39,7 +39,7 @@
     </properties>
 
     <!-- IT -->
-    <profiles>
+  <!--  <profiles>
         <profile>
             <id>dev</id>
             <properties>
@@ -62,7 +62,7 @@
                 <skip.unit.tests>true</skip.unit.tests>
             </properties>
         </profile>
-    </profiles>
+    </profiles>-->
     <build>
         <pluginManagement>
             <plugins>
@@ -193,8 +193,10 @@
                 <configuration>
                     <threadCount>1</threadCount>
                     <argLine>-Xms1024m -Xmx2048m</argLine>
+<!--
                     <skipTests>${skip.unit.tests}</skipTests>
                     <skipTests>${skipTests}</skipTests>
+-->
                     <excludes>
                         <exclude>**/*IT.java</exclude>
                     </excludes>
@@ -215,8 +217,10 @@
                         </goals>
                         <configuration>
                             <threadCount>1</threadCount>
+<!--
                             <skipTests>${skip.integration.tests}</skipTests>
                             <skipTests>${skip.ITs}</skipTests>
+-->
                             <argLine>-Xms1024m -Xmx2048m</argLine>
                         </configuration>
                     </execution>
