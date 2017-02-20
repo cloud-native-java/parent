@@ -76,8 +76,13 @@
                     <inherited>true</inherited>
 
                     <configuration>
-                        <configFile>eclipse/eclipse-code-formatter.xml
-                        </configFile>
+                        <configFile>eclipse/eclipse-code-formatter.xml</configFile>
+                       <directories>
+                         <directory>${project.build.sourceDirectory}</directory>
+                         <directory>${project.build.scriptSourceDirectory}</directory>
+                         <directory>${project.basedir}/src/integration-test/java</directory>
+                         <directory>${project.build.testSourceDirectory}</directory>
+                       </directories>
                     </configuration>
                     <dependencies>
                         <dependency>
