@@ -16,6 +16,27 @@
     </parent>
     <properties>
 
+        <!--  <dependency>
+        <groupId>org.cloudfoundry</groupId>
+        <artifactId>cloudfoundry-client-reactor</artifactId>
+        <version>2.4.0.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>org.cloudfoundry</groupId>
+        <artifactId>cloudfoundry-operations</artifactId>
+        <version>2.4.0.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>io.projectreactor</groupId>
+        <artifactId>reactor-core</artifactId>
+        <version>3.0.5.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>io.projectreactor.ipc</groupId>
+        <artifactId>reactor-netty</artifactId>
+        <version>0.6.0.RELEASE</version>
+    </dependency>-->
+
         <!-- Spring Batch -->
         <spring-batch.version>4.0.0.M1</spring-batch.version>
 
@@ -32,8 +53,8 @@
         <java.version>1.8</java.version>
 
         <!-- to support the reactive cloud foundry client -->
-        <cloudfoundry-client.version>2.3.0.RELEASE</cloudfoundry-client.version>
-        <reactor-core.version>3.0.4.RELEASE</reactor-core.version>
+        <cloudfoundry-client.version>2.4.0.RELEASE</cloudfoundry-client.version>
+        <reactor-core.version>3.0.5.RELEASE</reactor-core.version>
         <reactor-netty.version>0.6.0.RELEASE</reactor-netty.version>
 
     </properties>
