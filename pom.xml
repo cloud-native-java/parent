@@ -140,14 +140,7 @@
         </pluginManagement>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-            <!--
 
-            Tests:
-            mvn clean test
-            Integration Tests:
-            mvn clean verify -P integration-test
-
-            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
