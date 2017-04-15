@@ -78,12 +78,12 @@
 
                     <configuration>
                         <configFile>eclipse/eclipse-code-formatter.xml</configFile>
-                       <directories>
-                         <directory>${project.build.sourceDirectory}</directory>
-                         <directory>${project.build.scriptSourceDirectory}</directory>
-                         <directory>${project.basedir}/src/integration-test/java</directory>
-                         <directory>${project.build.testSourceDirectory}</directory>
-                       </directories>
+                        <directories>
+                            <directory>${project.build.sourceDirectory}</directory>
+                            <directory>${project.build.scriptSourceDirectory}</directory>
+                            <directory>${project.basedir}/src/integration-test/java</directory>
+                            <directory>${project.build.testSourceDirectory}</directory>
+                        </directories>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -175,7 +175,6 @@
                             <goal>add-test-resource</goal>
                         </goals>
                         <configuration>
-                            <!-- Configures the resource directory of our integration tests -->
                             <resources>
                                 <!--
                                 Placeholders that are found from the files located in the configured resource
@@ -192,47 +191,34 @@
                     </execution>
                 </executions>
             </plugin>
-
-
-            <!--   unit tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <threadCount>1</threadCount>
-                    <argLine>-Xms1024m -Xmx2048m</argLine>
-<!--
-                    <skipTests>${skip.unit.tests}</skipTests>
-                    <skipTests>${skipTests}</skipTests>
--->
                     <excludes>
                         <exclude>**/*IT.java</exclude>
                     </excludes>
+                    <argLine>-Xms1024m -Xmx2048m</argLine>
                 </configuration>
             </plugin>
-
-            <!--   integration tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <executions>
-
                     <execution>
                         <id>integration-tests</id>
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                        <configuration>
-                            <threadCount>1</threadCount>
-<!--
-                            <skipTests>${skip.integration.tests}</skipTests>
-                            <skipTests>${skip.ITs}</skipTests>
--->
-                            <argLine>-Xms1024m -Xmx2048m</argLine>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                    </includes>
+                    <argLine>-Xms1024m -Xmx2048m</argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jfrog.buildinfo</groupId>
@@ -240,9 +226,15 @@
             </plugin>
         </plugins>
     </build>
+
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>cnj</groupId>
+                <version>${project.version}</version>
+                <artifactId>it-support</artifactId>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>org.cloudfoundry</groupId>
                 <artifactId>cloudfoundry-client-reactor</artifactId>
