@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.4.RELEASE</version>
+        <version>1.5.2.RELEASE</version>
         <relativePath/>
     </parent>
     <properties>
@@ -22,8 +22,9 @@
 
         <!-- Spring Cloud -->
         <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
-        <spring-cloud-dependencies.version>Camden.SR4
-        </spring-cloud-dependencies.version>
+        <!--
+        <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>-->
+        <spring-cloud-dependencies.version>Dalston.RELEASE</spring-cloud-dependencies.version>
         <spring-cloud-dataflow.version>1.1.0.RELEASE
         </spring-cloud-dataflow.version>
 
