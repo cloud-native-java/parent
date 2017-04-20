@@ -22,11 +22,8 @@
 
         <!-- Spring Cloud -->
         <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
-        <!--
-        <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>-->
         <spring-cloud-dependencies.version>Dalston.RELEASE</spring-cloud-dependencies.version>
-        <spring-cloud-dataflow.version>1.1.0.RELEASE
-        </spring-cloud-dataflow.version>
+        <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version>
 
         <!-- General -->
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
