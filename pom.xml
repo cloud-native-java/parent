@@ -31,39 +31,10 @@
         <java.version>1.8</java.version>
 
         <!-- to support the reactive cloud foundry client -->
-        <cloudfoundry-client.version>2.4.0.RELEASE</cloudfoundry-client.version>
-        <reactor-core.version>3.0.5.RELEASE</reactor-core.version>
-        <reactor-netty.version>0.6.0.RELEASE</reactor-netty.version>
-
+        <cloudfoundry-client.version>2.9.0.RELEASE</cloudfoundry-client.version>
+        <reactor-core.version>3.0.6.RELEASE</reactor-core.version>
+        <reactor-netty.version>0.6.2.RELEASE</reactor-netty.version>
     </properties>
-
-    <!-- IT -->
-    <!--
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <skip.integration.tests>true</skip.integration.tests>
-            </properties>
-        </profile>
-        <profile>
-            <id>unit-test</id>
-            <properties>
-                <build.profile.id>dev</build.profile.id>
-                <skip.integration.tests>true</skip.integration.tests>
-                <skip.unit.tests>false</skip.unit.tests>
-            </properties>
-        </profile>
-        <profile>
-            <id>integration-test</id>
-            <properties>
-                <build.profile.id>integration-test</build.profile.id>
-                <skip.integration.tests>false</skip.integration.tests>
-                <skip.unit.tests>true</skip.unit.tests>
-            </properties>
-        </profile>
-    </profiles>
-    -->
     <build>
         <pluginManagement>
             <plugins>
