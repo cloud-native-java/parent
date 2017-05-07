@@ -25,7 +25,7 @@
         <spring-cloud-dependencies.version>Dalston.RELEASE</spring-cloud-dependencies.version>
         <!-- <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version> -->
 
-        <spring-cloud-dataflow.version>1.2.0.M3</spring-cloud-dataflow.version>
+        <spring-cloud-dataflow.version>1.2.0.RC2</spring-cloud-dataflow.version>
 
         <!-- General -->
         <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
