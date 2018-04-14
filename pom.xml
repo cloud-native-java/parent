@@ -5,66 +5,77 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cnj</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
+        <version>2.0.1.RELEASE</version>
         <relativePath/>
     </parent>
     <properties>
+        <java.version>
+            1.8
+        </java.version>
+
+        <spring-cloud-dependencies.version>
+            Finchley.M9
+        </spring-cloud-dependencies.version>
+        <!--
+                &lt;!&ndash; Spring Batch &ndash;&gt;
+                <spring-batch.version>4.0.0.M1</spring-batch.version>
+
+                &lt;!&ndash; Spring Cloud &ndash;&gt;
+                <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
+
+                &lt;!&ndash; <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version> &ndash;&gt;
+
+                <spring-cloud-dataflow.version>1.2.0.RELEASE</spring-cloud-dataflow.version>
+
+                &lt;!&ndash; General &ndash;&gt;
+                <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
 
 
-        <!-- Spring Batch -->
-        <spring-batch.version>4.0.0.M1</spring-batch.version>
 
-        <!-- Spring Cloud -->
-        <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
-        <spring-cloud-dependencies.version>Dalston.RELEASE</spring-cloud-dependencies.version>
-        <!-- <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version> -->
-
-        <spring-cloud-dataflow.version>1.2.0.RELEASE</spring-cloud-dataflow.version>
-
-        <!-- General -->
-        <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
-
-        <java.version>1.8</java.version>
-
-        <!-- to support the reactive cloud foundry client -->
-        <cloudfoundry-client.version>2.9.0.RELEASE</cloudfoundry-client.version>
-        <reactor-core.version>3.0.6.RELEASE</reactor-core.version>
-        <reactor-netty.version>0.6.2.RELEASE</reactor-netty.version>
+                &lt;!&ndash; to support the reactive cloud foundry client &ndash;&gt;
+                <cloudfoundry-client.version>2.9.0.RELEASE</cloudfoundry-client.version>
+                <reactor-core.version>3.0.6.RELEASE</reactor-core.version>
+                <reactor-netty.version>0.6.2.RELEASE</reactor-netty.version>-->
     </properties>
     <build>
         <pluginManagement>
             <plugins>
+                <!--       <plugin>
+                           <groupId>net.revelc.code</groupId>
+                           <artifactId>formatter-maven-plugin</artifactId>
+                           <version>0.5.2</version>
+
+                           <inherited>true</inherited>
+
+                           <configuration>
+                               <configFile>eclipse/eclipse-code-formatter.xml</configFile>
+                               <directories>
+                                   <directory>${project.build.sourceDirectory}</directory>
+                                   <directory>${project.build.scriptSourceDirectory}</directory>
+                                   <directory>${project.basedir}/src/integration-test/java</directory>
+                                   <directory>${project.build.testSourceDirectory}</directory>
+                               </directories>
+                           </configuration>
+                           <dependencies>
+                               <dependency>
+                                   <groupId>cnj</groupId>
+                                   <artifactId>project-support</artifactId>
+                                   <version>1.0.0-SNAPSHOT</version>
+                               </dependency>
+                           </dependencies>
+                       </plugin>-->
+
                 <plugin>
-                    <groupId>net.revelc.code</groupId>
-                    <artifactId>formatter-maven-plugin</artifactId>
-                    <version>0.5.2</version>
-
-                    <inherited>true</inherited>
-
-                    <configuration>
-                        <configFile>eclipse/eclipse-code-formatter.xml</configFile>
-                        <directories>
-                            <directory>${project.build.sourceDirectory}</directory>
-                            <directory>${project.build.scriptSourceDirectory}</directory>
-                            <directory>${project.basedir}/src/integration-test/java</directory>
-                            <directory>${project.build.testSourceDirectory}</directory>
-                        </directories>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>cnj</groupId>
-                            <artifactId>project-support</artifactId>
-                            <version>1.0.0-SNAPSHOT</version>
-                        </dependency>
-                    </dependencies>
+                    <groupId>io.spring.javaformat</groupId>
+                    <artifactId>spring-javaformat-maven-plugin</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
                 </plugin>
-
                 <plugin>
                     <groupId>org.jfrog.buildinfo</groupId>
                     <artifactId>artifactory-maven-plugin</artifactId>
@@ -200,40 +211,46 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.cloudfoundry</groupId>
-                <artifactId>cloudfoundry-client-reactor</artifactId>
-                <version>${cloudfoundry-client.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.cloudfoundry</groupId>
-                <artifactId>cloudfoundry-operations</artifactId>
-                <version>${cloudfoundry-client.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.projectreactor</groupId>
-                <artifactId>reactor-core</artifactId>
-                <version>${reactor-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.projectreactor.ipc</groupId>
-                <artifactId>reactor-netty</artifactId>
-                <version>${reactor-netty.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-cloudfoundry-commons</artifactId>
+                <version>${spring-cloud-cloudfoundry.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dataflow-dependencies</artifactId>
-                <version>${spring-cloud-dataflow.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-task-dependencies</artifactId>
-                <version>${spring-cloud-task.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!--   <dependency>
+                   <groupId>org.cloudfoundry</groupId>
+                   <artifactId>cloudfoundry-client-reactor</artifactId>
+                   <version>${cloudfoundry-client.version}</version>
+               </dependency>
+               <dependency>
+                   <groupId>org.cloudfoundry</groupId>
+                   <artifactId>cloudfoundry-operations</artifactId>
+                   <version>${cloudfoundry-client.version}</version>
+               </dependency>
+               <dependency>
+                   <groupId>io.projectreactor</groupId>
+                   <artifactId>reactor-core</artifactId>
+                   <version>${reactor-core.version}</version>
+               </dependency>
+               <dependency>
+                   <groupId>io.projectreactor.ipc</groupId>
+                   <artifactId>reactor-netty</artifactId>
+                   <version>${reactor-netty.version}</version>
+               </dependency>-->
+
+            <!--   <dependency>
+                   <groupId>org.springframework.cloud</groupId>
+                   <artifactId>spring-cloud-dataflow-dependencies</artifactId>
+                   <version>${spring-cloud-dataflow.version}</version>
+                   <type>pom</type>
+                   <scope>import</scope>
+               </dependency>-->
+            <!--  <dependency>
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-task-dependencies</artifactId>
+                  <version>${spring-cloud-task.version}</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -241,20 +258,20 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud.stream.app</groupId>
-                <artifactId>app-starters-core-dependencies</artifactId>
-                <version>1.1.0.RC1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud.task.app</groupId>
-                <artifactId>spring-cloud-task-app-dependencies</artifactId>
-                <version>1.0.1.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!--           <dependency>
+                           <groupId>org.springframework.cloud.stream.app</groupId>
+                           <artifactId>app-starters-core-dependencies</artifactId>
+                           <version>1.1.0.RC1</version>
+                           <type>pom</type>
+                           <scope>import</scope>
+                       </dependency>
+                       <dependency>
+                           <groupId>org.springframework.cloud.task.app</groupId>
+                           <artifactId>spring-cloud-task-app-dependencies</artifactId>
+                           <version>1.0.1.RELEASE</version>
+                           <type>pom</type>
+                           <scope>import</scope>
+                       </dependency>-->
         </dependencies>
     </dependencyManagement>
 
